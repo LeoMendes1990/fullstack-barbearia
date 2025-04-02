@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia - Sistema de Agendamento</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Barbearia</h1>
+            <ul class="nav-links">
+                <li><a href="#" class="active" data-page="agendamentos">Agendamentos</a></li>
+                <li><a href="#" data-page="clientes">Clientes</a></li>
+                <li><a href="#" data-page="servicos">Serviços</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Página de Agendamentos -->
+        <section id="agendamentos" class="page active">
+            <h2>Agendamentos</h2>
+            <div class="actions">
+                <button class="btn-primary" onclick="showModal('agendamento-form')">Novo Agendamento</button>
+            </div>
+            <div class="table-container">
+                <table id="agendamentos-table">
+                    <thead>
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Cliente</th>
+                            <th>Serviço</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Preenchido via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Página de Clientes -->
+        <section id="clientes" class="page">
+            <h2>Clientes</h2>
+            <div class="actions">
+                <button class="btn-primary" onclick="showModal('cliente-form')">Novo Cliente</button>
+            </div>
+            <div class="table-container">
+                <table id="clientes-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Preenchido via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Página de Serviços -->
+        <section id="servicos" class="page">
+            <h2>Serviços</h2>
+            <div class="actions">
+                <button class="btn-primary" onclick="showModal('servico-form')">Novo Serviço</button>
+            </div>
+            <div class="table-container">
+                <table id="servicos-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Preenchido via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Agendamento -->
+    <div id="agendamento-form" class="modal">
+        <div class="modal-content">
+            <h3>Novo Agendamento</h3>
+            <form id="form-agendamento">
+                <div class="form-group">
+                    <label for="agendamento-cliente">Cliente</label>
+                    <select id="agendamento-cliente" required>
+                        <!-- Preenchido via JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="agendamento-servico">Serviço</label>
+                    <select id="agendamento-servico" required>
+                        <!-- Preenchido via JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="agendamento-data">Data</label>
+                    <input type="date" id="agendamento-data" required>
+                </div>
+                <div class="form-group">
+                    <label for="agendamento-hora">Hora</label>
+                    <input type="time" id="agendamento-hora" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="hideModal('agendamento-form')">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Cliente -->
+    <div id="cliente-form" class="modal">
+        <div class="modal-content">
+            <h3>Novo Cliente</h3>
+            <form id="form-cliente">
+                <div class="form-group">
+                    <label for="cliente-nome">Nome</label>
+                    <input type="text" id="cliente-nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="cliente-email">Email</label>
+                    <input type="email" id="cliente-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="cliente-telefone">Telefone</label>
+                    <input type="tel" id="cliente-telefone" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="hideModal('cliente-form')">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Serviço -->
+    <div id="servico-form" class="modal">
+        <div class="modal-content">
+            <h3>Novo Serviço</h3>
+            <form id="form-servico">
+                <div class="form-group">
+                    <label for="servico-nome">Nome</label>
+                    <input type="text" id="servico-nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="servico-preco">Preço</label>
+                    <input type="number" id="servico-preco" step="0.01" min="0" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="hideModal('servico-form')">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
